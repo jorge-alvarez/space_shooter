@@ -32,10 +32,11 @@ function UpdateAliens ( )
     // update the aliens
 	for i = 1 to 10
         // get the new location
-		fShipX#   = GetSpriteX    ( g_Aliens [ i ].iSprite ) - g_Aliens [ i ].fSpeed#
-		fShipY#   = GetSpriteY    ( g_Aliens [ i ].iSprite )
-		fEngineX# = GetParticlesX ( g_Aliens [ i ].iEngine ) - g_Aliens [ i ].fSpeed#
-		fEngineY# = GetParticlesY ( g_Aliens [ i ].iEngine )
+		fShipX#   = GetSpriteX    ( g_Aliens [ i ].iSprite ) 
+		fShipY#   = GetSpriteY    ( g_Aliens [ i ].iSprite ) + g_Aliens [ i ].fSpeed#
+		fEngineX# = GetParticlesX ( g_Aliens [ i ].iEngine ) 
+		fEngineY# = GetParticlesY ( g_Aliens [ i ].iEngine ) + g_Aliens [ i ].fSpeed#
+
 
         // apply wavy movement
 		g_Aliens [ i ].fValueB# = g_Aliens [ i ].fValueB# + g_Aliens [ i ].fValueA#
@@ -83,8 +84,11 @@ function ResetAliens ( )
     // run through them
     for i = 1 to 10
         // set position
-        iX = 550 + Random ( 20, 600 )
-		iY = Random ( 100, 300 )
+        //iX = 550 + Random ( 20, 600 )
+		//iY = Random ( 100, 300 )
+		
+		iX = Random (100, 450)
+		iY = 0 - Random ( 20, 600 )
 
         // delete alien if it exists
 		if GetSpriteExists ( g_Aliens [ i ].iSprite ) = 1

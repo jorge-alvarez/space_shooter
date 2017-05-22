@@ -9,10 +9,10 @@ endfunction
 function CreateStarField( )
     LoadImage ( 4, "space/particle.png" )
 
-    CreateParticles           ( 1, 550.0, 0.0 )
+    CreateParticles           ( 1, 0.0, 0.0 )
 	SetParticlesImage         ( 1, 4 )
-	SetParticlesStartZone     ( 1, 0, 10, 0, 400 )
-	SetParticlesDirection     ( 1, -50.0, 0.0 )
+	SetParticlesStartZone     ( 1, 0, 0, 550, 0 )
+	SetParticlesDirection     ( 1, 0.0, 50.0 )
 	SetParticlesLife          ( 1, 15 )
 	SetParticlesSize          ( 1, 4 )
 	SetParticlesAngle         ( 1, 0 )
@@ -25,13 +25,13 @@ function CreateLevel( )
     j = LoadImage ( "space/MetalBlock1.png" )
 
 	// top random
-	CreateStrip ( j, 32.0, 0.0, 0 )
+	//CreateStrip ( j, 32.0, 0.0, 0 )
 
 	// bottom random
-	CreateStrip ( j, 25.0, 0.0, 1 )
+	//CreateStrip ( j, 25.0, 0.0, 1 )
 
 	// top and bottom straight
-	CreateStrip ( j, 0.0, 0.0, 2 )
+	//CreateStrip ( j, 0.0, 0.0, 2 )
 endfunction
 
 function CreateStrip ( iImage as integer, fX as float, fY as float, iMode as integer )

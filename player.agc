@@ -95,23 +95,23 @@ function UpdatePlayer ( )
 endfunction
 
 function MovePlayer ( )
-    x# = 1.0
-    y# = 0.0
+    x# = 0.0
+    y# = -1.0
 
     if ( GetViewOffsetX ( ) > 15300 )
                 HidePlayer ( )
                 g_iGameState = 2
         endif
 
-        SetViewOffset ( GetViewOffsetX ( ) + x#, 0 )
+        SetViewOffset (0, GetViewOffsetY ( ) + y#)
 
         fScreenX# = WorldToScreenX ( GetSpriteX ( g_iPlayerShip ) )
 
         x1# = GetDirectionX ( )
         y1# = GetDirectionY ( )
 
-        x# = x# + x1# * 2
-        y# = y# + y1# * 2
+        x# = x# + x1# * 5
+        y# = y# + y1# * 5
 
         if fScreenX# > 500 and x1# > 0.0
                 x# = 1.0
@@ -168,7 +168,7 @@ function FireBullets ( )
                         if g_Bullets [ i ].iActive = 0
                                 PlaySound ( 1 )
 
-                                SetSpritePosition ( g_Bullets [ i ].iID, GetSpriteX ( g_iPlayerShip ) + 28, GetSpriteY ( g_iPlayerShip ) )
+                                SetSpritePosition ( g_Bullets [ i ].iID, GetSpriteX ( g_iPlayerShip ), GetSpriteY ( g_iPlayerShip ) + 28)
                                 g_Bullets [ i ].iActive = 1
                                 goto FireBulletsEnd
                         endif
@@ -182,7 +182,7 @@ endfunction
 function UpdateBullets ( )
     for i = 1 to 10
                 if ( g_Bullets [ i ].iActive = 1 )
-                        SetSpritePosition ( g_Bullets [ i ].iID, GetSpriteX ( g_Bullets [ i ].iID ) + 4.5, GetSpriteY ( g_Bullets [ i ].iID ) )
+                        SetSpritePosition ( g_Bullets [ i ].iID, GetSpriteX ( g_Bullets [ i ].iID ), GetSpriteY ( g_Bullets [ i ].iID ) - 4.5 )
                         g_Bullets [ i ].fLife = g_Bullets [ i ].fLife + 0.1
 
                         if ( g_Bullets [ i ].fLife < 10.0 )
